@@ -275,15 +275,15 @@ def objects_to_crops(img, tokens, objects, class_thresholds, padding=10):
                              token['bbox'][3]-bbox[1]]
 
         # If table is predicted to be rotated, rotate cropped image and tokens/words:
-        if obj['label'] == 'table rotated':
-            cropped_img = cropped_img.rotate(270, expand=True)
-            for token in table_tokens:
-                bbox = token['bbox']
-                bbox = [cropped_img.size[0]-bbox[3]-1,
-                        bbox[0],
-                        cropped_img.size[0]-bbox[1]-1,
-                        bbox[2]]
-                token['bbox'] = bbox
+        # if obj['label'] == 'table rotated':
+        #     cropped_img = cropped_img.rotate(270, expand=True)
+        #     for token in table_tokens:
+        #         bbox = token['bbox']
+        #         bbox = [cropped_img.size[0]-bbox[3]-1,
+        #                 bbox[0],
+        #                 cropped_img.size[0]-bbox[1]-1,
+        #                 bbox[2]]
+        #         token['bbox'] = bbox
 
         cropped_table['image'] = cropped_img
         cropped_table['tokens'] = table_tokens
